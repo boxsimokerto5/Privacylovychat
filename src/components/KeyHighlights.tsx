@@ -1,22 +1,24 @@
 import React from 'react';
-import { MapPinOff, Trash2, ShieldCheck, Lock, ExternalLink } from 'lucide-react';
+import { MapPinOff, Trash2, ShieldCheck, Lock, ExternalLink, ShieldAlert } from 'lucide-react';
 import { APP_DETAILS } from '../data/privacyContent';
 
 interface KeyHighlightsProps {
   language: 'en' | 'id';
   onOpenDeletionModal: () => void;
+  onOpenChildSafetyModal?: () => void;
 }
 
 export const KeyHighlights: React.FC<KeyHighlightsProps> = ({
   language,
   onOpenDeletionModal,
+  onOpenChildSafetyModal,
 }) => {
   return (
     <section className="mb-10">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xs font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#23a26d' }}></span>
-          <span>{language === 'en' ? 'Key Privacy Commitments' : 'Komitmen Utama Privasi'}</span>
+          <span>{language === 'en' ? 'Key Privacy & Safety Commitments' : 'Komitmen Utama Privasi & Keselamatan'}</span>
         </h2>
         <span className="text-xs text-slate-400">
           {language === 'en' ? 'Quick Summary' : 'Ringkasan Cepat'}
@@ -68,26 +70,39 @@ export const KeyHighlights: React.FC<KeyHighlightsProps> = ({
           </button>
         </div>
 
-        {/* Highlight 3: 18+ & Safety */}
-        <div className="bg-white rounded-xl border border-emerald-100 p-4.5 shadow-2xs hover:shadow-xs transition-shadow">
-          <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center mb-3">
-            <ShieldCheck className="w-5 h-5" />
+        {/* Highlight 3: Child Safety & CSAE Zero Tolerance */}
+        <div className="bg-white rounded-xl border border-rose-200 p-4.5 shadow-2xs hover:shadow-xs transition-shadow bg-gradient-to-b from-rose-50/30 to-white">
+          <div className="w-9 h-9 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center mb-3">
+            <ShieldAlert className="w-5 h-5" />
           </div>
           <h3 className="text-sm font-semibold text-slate-900 mb-1">
-            {language === 'en' ? '18+ Only & Instant Blocking' : 'Khusus 18+ & Blokir Seketika'}
+            {language === 'en' ? 'Child Safety & CSAE Zero Tolerance' : 'Keselamatan Anak & Nol Toleransi CSAE'}
           </h3>
           <p className="text-xs text-slate-600 leading-relaxed">
             {language === 'en'
-              ? 'Lovy strictly prohibits minors under 18. Users can block abusive individuals at any time and report misconduct for prompt moderator action.'
-              : 'Lovy melarang keras anak di bawah 18 tahun. Pengguna dapat memblokir pelaku kapan saja dan melaporkan konten untuk ditindak moderator.'}
+              ? `Strict zero-tolerance against CSAM/CSAE. In-app reporting tools, contact at ${APP_DETAILS.safetyContactEmail || APP_DETAILS.primaryContactEmail}, and prompt NCMEC reporting.`
+              : `Nol toleransi ketat terhadap CSAM/CSAE. Fitur pelaporan di aplikasi, kontak ${APP_DETAILS.safetyContactEmail || APP_DETAILS.primaryContactEmail}, dan pelaporan ke NCMEC.`}
           </p>
-          <a
-            href="#section-7"
-            className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 hover:text-emerald-800 mt-2.5"
-          >
-            <span>{language === 'en' ? 'See Sections 7 & 8' : 'Lihat Bagian 7 & 8'}</span>
-            <ExternalLink className="w-3 h-3" />
-          </a>
+          <div className="flex items-center gap-2 mt-2.5">
+            <a
+              href="#section-8"
+              className="inline-flex items-center gap-1 text-[11px] font-semibold text-rose-700 hover:text-rose-800"
+            >
+              <span>{language === 'en' ? 'See Section 8' : 'Lihat Bagian 8'}</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            {onOpenChildSafetyModal && (
+              <>
+                <span className="text-slate-300">·</span>
+                <button
+                  onClick={onOpenChildSafetyModal}
+                  className="text-[11px] font-semibold text-slate-600 hover:text-slate-900 cursor-pointer"
+                >
+                  {language === 'en' ? 'Report' : 'Lapor'}
+                </button>
+              </>
+            )}
+          </div>
         </div>
 
         {/* Highlight 4: Security & Ad Compliance */}

@@ -76,6 +76,15 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a
+                  href="#section-8"
+                  className="hover:text-rose-400 text-rose-300 transition-colors flex items-center gap-1.5"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5 text-rose-400" />
+                  <span>{language === 'en' ? 'Child Safety & CSAE Policy' : 'Kebijakan Keselamatan Anak & CSAE'}</span>
+                </a>
+              </li>
+              <li>
+                <a
                   href="#section-2"
                   className="hover:text-emerald-400 transition-colors"
                 >
@@ -101,12 +110,31 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2.5">
               <li className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                <a
-                  href={`mailto:${APP_DETAILS.primaryContactEmail}`}
-                  className="hover:text-white transition-colors break-all"
-                >
-                  {APP_DETAILS.primaryContactEmail}
-                </a>
+                <div>
+                  <span className="text-slate-500 block text-[10px]">
+                    {language === 'en' ? 'Primary Privacy Email:' : 'Email Privasi Utama:'}
+                  </span>
+                  <a
+                    href={`mailto:${APP_DETAILS.primaryContactEmail}`}
+                    className="hover:text-white transition-colors break-all"
+                  >
+                    {APP_DETAILS.primaryContactEmail}
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-center gap-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />
+                <div>
+                  <span className="text-slate-500 block text-[10px]">
+                    {language === 'en' ? 'Child Safety Contact:' : 'Kontak Keselamatan Anak:'}
+                  </span>
+                  <a
+                    href={`mailto:${APP_DETAILS.safetyContactEmail || APP_DETAILS.primaryContactEmail}?subject=Child%20Safety%20Inquiry`}
+                    className="hover:text-white transition-colors break-all text-rose-300"
+                  >
+                    {APP_DETAILS.safetyContactEmail || APP_DETAILS.primaryContactEmail}
+                  </a>
+                </div>
               </li>
               <li className="pt-1 text-slate-300">
                 <span className="text-slate-500 block text-[11px]">

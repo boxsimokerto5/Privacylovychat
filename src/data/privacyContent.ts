@@ -52,6 +52,7 @@ export const APP_DETAILS = {
   developerName: "geccko creator",
   primaryContactEmail: "eccko.w4@gmail.com",
   deletionEmail: "eccko.w4@gmail.com",
+  safetyContactEmail: "eccko.w4@gmail.com",
   effectiveDate: "September 30, 2026",
   minAge: 18,
   googlePlayCompliant: true,
@@ -336,12 +337,94 @@ export const PRIVACY_CONTENT_EN: SectionItem[] = [
   {
     id: "section-8",
     number: 8,
-    title: "Children's Privacy",
-    summary: "18+ age restriction and prompt deletion of any unauthorized minor accounts.",
+    title: "Child Safety & CSAE Prevention Policy",
+    summary: "Strict zero-tolerance policy against CSAM and CSAE, dedicated safety reporting mechanisms, 18+ enforcement, and mandatory reporting to law enforcement and NCMEC.",
+    badge: "Zero Tolerance",
     content: {
       paragraphs: [
-        "Lovy is intended for individuals aged 18 and older (or the minimum legal age of majority in your jurisdiction). We do not knowingly collect personal information from children under 13 (or under 16 where required by local law).",
-        "If we discover that a minor has provided us with personal information, we will delete it immediately. If you believe a child has created an account, please contact us at eccko.w4@gmail.com."
+        "Lovy maintains a strict zero-tolerance policy against Child Sexual Abuse Material (CSAM) and Child Sexual Exploitation and Abuse (CSAE). We do not permit any content or behavior that harms or exploits children.",
+        "Users can report any child safety concerns directly through our in-app reporting tools or by contacting our designated safety point of contact at eccko.w4@gmail.com. We comply with all applicable local and international child protection laws and promptly report confirmed CSAM violations to law enforcement and relevant authorities (including NCMEC)."
+      ],
+      subsections: [
+        {
+          id: "section-8a",
+          letter: "a",
+          title: "Zero-Tolerance Policy on CSAM and CSAE",
+          bulletPoints: [
+            {
+              label: "Prohibited Content & Exploitation",
+              text: "Any creation, uploading, sharing, transmission, solicitation, or facilitation of Child Sexual Abuse Material (CSAM) or Child Sexual Exploitation and Abuse (CSAE) is strictly prohibited on Lovy."
+            },
+            {
+              label: "Immediate Permanent Ban & Enforcement",
+              text: "Any user or account associated with, attempting to distribute, or engaging in CSAM or CSAE will face immediate permanent account termination, persistent device hardware ban, and IP blocklisting."
+            }
+          ]
+        },
+        {
+          id: "section-8b",
+          letter: "b",
+          title: "Reporting Mechanisms for Child Safety Concerns",
+          bulletPoints: [
+            {
+              label: "In-App Reporting Tools",
+              text: "Users can report any suspicious profiles, messages, images, or child safety concerns immediately using the in-app 'Report' button accessible in every 1-on-1 chat, moment post, and user profile."
+            },
+            {
+              label: "Designated Child Safety Point of Contact",
+              text: "You can report child safety concerns directly to our dedicated safety officer via email at eccko.w4@gmail.com with the subject line 'URGENT: Child Safety Report'. Child safety inquiries are triaged immediately with priority response."
+            }
+          ]
+        },
+        {
+          id: "section-8c",
+          letter: "c",
+          title: "Mandatory Law Enforcement & NCMEC Reporting",
+          bulletPoints: [
+            {
+              label: "Prompt NCMEC Referral",
+              text: "We promptly report all confirmed CSAM and CSAE violations to the National Center for Missing & Exploited Children (NCMEC) via the CyberTipline and cooperate fully with global child welfare authorities."
+            },
+            {
+              label: "Law Enforcement Cooperation",
+              text: "We comply with all applicable local and international child protection laws, preserving forensic data in accordance with statutory requirements to assist law enforcement agencies in prosecution."
+            }
+          ]
+        },
+        {
+          id: "section-8d",
+          letter: "d",
+          title: "Strict 18+ Age Restriction & Minor Data Purge",
+          bulletPoints: [
+            {
+              label: "Age Requirement (18+ Only)",
+              text: "Lovy is strictly designed and intended for adults aged 18 and older. Minors are strictly prohibited from registering or using the platform."
+            },
+            {
+              label: "Immediate Minor Account Deletion",
+              text: "If we discover or are notified that a minor has created an account or submitted personal information, we will immediately and permanently delete the account and all associated data from our servers."
+            }
+          ]
+        }
+      ],
+      importantNotice: "Important Zero-Tolerance Notice: Lovy does not permit any content or behavior that harms or exploits children. Confirmed CSAM/CSAE violations trigger immediate permanent account termination and referral to NCMEC and legal authorities.",
+      contactInfo: [
+        {
+          label: "Designated Safety Point of Contact",
+          value: "eccko.w4@gmail.com",
+          link: "mailto:eccko.w4@gmail.com?subject=URGENT%3A%20Child%20Safety%20%26%20CSAE%20Report",
+          type: "email"
+        }
+      ],
+      externalLinks: [
+        {
+          name: "NCMEC CyberTipline",
+          url: "https://report.cybertip.org"
+        },
+        {
+          name: "National Center for Missing & Exploited Children",
+          url: "https://www.missingkids.org"
+        }
       ]
     }
   },
@@ -634,12 +717,94 @@ export const PRIVACY_CONTENT_ID: SectionItem[] = [
   {
     id: "section-8",
     number: 8,
-    title: "Privasi Anak-Anak",
-    summary: "Batasan usia 18+ dan penghapusan langsung jika ditemukan akun di bawah umur.",
+    title: "Kebijakan Keselamatan Anak & Pencegahan CSAE",
+    summary: "Kebijakan nol toleransi terhadap CSAM dan CSAE, sarana pelaporan keselamatan anak, batasan usia 18+, dan kewajiban pelaporan ke penegak hukum dan NCMEC.",
+    badge: "Nol Toleransi",
     content: {
       paragraphs: [
-        "Lovy ditujukan untuk individu berusia 18 tahun ke atas (atau usia dewasa menurut hukum di yurisdiksi Anda). Kami tidak dengan sengaja mengumpulkan informasi pribadi dari anak-anak di bawah 13 tahun (atau di bawah 16 tahun jika diwajibkan oleh hukum setempat).",
-        "Jika kami mendapati bahwa anak di bawah umur telah memberikan informasi pribadi kepada kami, kami akan segera menghapusnya. Jika Anda meyakini ada anak di bawah umur yang membuat akun, silakan hubungi kami di eccko.w4@gmail.com."
+        "Lovy menerapkan kebijakan tanpa toleransi (zero-tolerance) yang ketat terhadap Materi Pelecehan Seksual Anak (Child Sexual Abuse Material - CSAM) dan Eksploitasi serta Pelecehan Seksual Anak (Child Sexual Exploitation and Abuse - CSAE). Kami tidak mengizinkan konten atau perilaku apa pun yang membahayakan atau mengeksploitasi anak-anak.",
+        "Pengguna dapat melaporkan segala kekhawatiran terkait keselamatan anak secara langsung melalui fitur pelaporan di dalam aplikasi (in-app reporting) atau dengan menghubungi kontak keselamatan khusus kami di eccko.w4@gmail.com. Kami mematuhi seluruh peraturan perundang-undangan perlindungan anak yang berlaku baik di tingkat lokal maupun internasional, dan segera melaporkan pelanggaran CSAM yang terkonfirmasi kepada aparat penegak hukum dan otoritas terkait (termasuk NCMEC)."
+      ],
+      subsections: [
+        {
+          id: "section-8a",
+          letter: "a",
+          title: "Kebijakan Tanpa Toleransi terhadap CSAM dan CSAE",
+          bulletPoints: [
+            {
+              label: "Konten dan Perilaku Terlarang",
+              text: "Pembuatan, pengunggahan, penyebaran, transmisi, ajakan, atau fasilitasi Materi Pelecehan Seksual Anak (CSAM) atau Eksploitasi serta Pelecehan Seksual Anak (CSAE) dilarang keras di Lovy tanpa pengecualian."
+            },
+            {
+              label: "Penegakan Tindakan Tegas Seketika",
+              text: "Akun mana pun yang teridentifikasi atau dicurigai terlibat dalam penyebaran atau ajakan CSAM/CSAE akan langsung diblokir secara permanen, dilarang secara perangkat keras, dan alamat IP masuk daftar hitam."
+            }
+          ]
+        },
+        {
+          id: "section-8b",
+          letter: "b",
+          title: "Mekanisme Pelaporan Kekhawatiran Keselamatan Anak",
+          bulletPoints: [
+            {
+              label: "Fitur Pelaporan di Dalam Aplikasi (In-App)",
+              text: "Pengguna dapat melaporkan profil, pesan obrolan, gambar, atau perilaku yang mencurigakan secara instan menggunakan tombol 'Laporkan' (Report) yang tersedia di setiap obrolan, postingan momen, dan profil pengguna."
+            },
+            {
+              label: "Kontak Resmi Penanggung Jawab Keselamatan Anak",
+              text: "Anda dapat menghubungi tim keselamatan khusus kami melalui email ke eccko.w4@gmail.com dengan subjek 'URGENT: Laporan Keselamatan Anak'. Laporan keselamatan anak diproses dengan prioritas tertinggi."
+            }
+          ]
+        },
+        {
+          id: "section-8c",
+          letter: "c",
+          title: "Kewajiban Pelaporan ke Penegak Hukum & NCMEC",
+          bulletPoints: [
+            {
+              label: "Penerusan Segera ke NCMEC",
+              text: "Sesuai dengan ketentuan hukum dan standar keselamatan internasional, kami segera melaporkan setiap pelanggaran CSAM/CSAE yang terkonfirmasi ke National Center for Missing & Exploited Children (NCMEC) melalui CyberTipline."
+            },
+            {
+              label: "Kerja Sama dengan Penegak Hukum",
+              text: "Kami mematuhi seluruh undang-undang perlindungan anak lokal maupun internasional yang berlaku, serta mengamankan bukti forensik digital untuk mendukung penyelidikan aparat penegak hukum."
+            }
+          ]
+        },
+        {
+          id: "section-8d",
+          letter: "d",
+          title: "Batasan Usia Khusus Dewasa (18+) & Penghapusan Akun Anak",
+          bulletPoints: [
+            {
+              label: "Persyaratan Usia 18 Tahun ke Atas",
+              text: "Layanan Lovy secara tegas hanya diperuntukkan bagi individu berusia 18 tahun ke atas. Anak di bawah umur dilarang mendaftar atau menggunakan Lovy."
+            },
+            {
+              label: "Pemusnahan Data Akun di Bawah Umur",
+              text: "Jika kami mengetahui ada anak di bawah umur yang mendaftar atau memberikan informasi pribadi, akun dan seluruh datanya akan segera dihapus permanen dari server kami."
+            }
+          ]
+        }
+      ],
+      importantNotice: "Pemberitahuan Nol Toleransi: Lovy tidak menoleransi konten atau perilaku apa pun yang membahayakan atau mengeksploitasi anak-anak. Pelanggaran CSAM/CSAE yang terkonfirmasi akan segera berakibat pada pemblokiran akun permanen dan pelaporan ke NCMEC serta aparat penegak hukum.",
+      contactInfo: [
+        {
+          label: "Kontak Khusus Keselamatan Anak",
+          value: "eccko.w4@gmail.com",
+          link: "mailto:eccko.w4@gmail.com?subject=URGENT%3A%20Child%20Safety%20%26%20CSAE%20Report",
+          type: "email"
+        }
+      ],
+      externalLinks: [
+        {
+          name: "NCMEC CyberTipline",
+          url: "https://report.cybertip.org"
+        },
+        {
+          name: "National Center for Missing & Exploited Children",
+          url: "https://www.missingkids.org"
+        }
       ]
     }
   },

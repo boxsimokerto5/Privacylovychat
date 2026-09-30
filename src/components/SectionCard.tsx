@@ -10,7 +10,9 @@ import {
   Copy,
   UserX,
   Flag,
-  Globe
+  Globe,
+  ShieldAlert,
+  ShieldCheck
 } from 'lucide-react';
 
 interface SectionCardProps {
@@ -18,6 +20,7 @@ interface SectionCardProps {
   language: 'en' | 'id';
   searchQuery: string;
   onOpenDeletionModal: () => void;
+  onOpenChildSafetyModal?: () => void;
 }
 
 export const SectionCard: React.FC<SectionCardProps> = ({
@@ -25,6 +28,7 @@ export const SectionCard: React.FC<SectionCardProps> = ({
   language,
   searchQuery,
   onOpenDeletionModal,
+  onOpenChildSafetyModal,
 }) => {
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
@@ -292,6 +296,92 @@ export const SectionCard: React.FC<SectionCardProps> = ({
                   ? 'Reports trigger human moderation review and swift disciplinary action.'
                   : 'Laporan memicu peninjauan tim moderasi dan tindakan tegas.'}
               </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Special Highlights for Section 8: Child Safety & CSAE Prevention */}
+      {section.number === 8 && (
+        <div className="mt-5 space-y-3.5">
+          <div className="p-4 sm:p-5 rounded-xl border border-rose-200 bg-gradient-to-r from-rose-50/70 via-red-50/40 to-white shadow-2xs">
+            <div className="flex items-center gap-2 mb-2 text-rose-900 font-bold">
+              <ShieldAlert className="w-5 h-5 text-rose-600 flex-shrink-0" />
+              <h4 className="text-xs uppercase tracking-wider">
+                {language === 'en' ? 'Child Safety & CSAE Reporting Portal' : 'Pusat Pelaporan Keselamatan Anak & CSAE'}
+              </h4>
+              <span className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded bg-rose-100 text-rose-800 border border-rose-200">
+                {language === 'en' ? 'Zero Tolerance' : 'Nol Toleransi'}
+              </span>
+            </div>
+            <p className="text-xs text-slate-700 mb-3.5 leading-relaxed">
+              {language === 'en'
+                ? `Lovy maintains a strict zero-tolerance policy against CSAM and CSAE. Users can report any concerns directly through in-app reporting tools or by contacting our designated safety point of contact at ${APP_DETAILS.safetyContactEmail || APP_DETAILS.primaryContactEmail}.`
+                : `Lovy menerapkan kebijakan tanpa toleransi (zero-tolerance) yang ketat terhadap CSAM dan CSAE. Pengguna dapat melaporkan kekhawatiran langsung melalui fitur pelaporan aplikasi atau melalui kontak keselamatan di ${APP_DETAILS.safetyContactEmail || APP_DETAILS.primaryContactEmail}.`}
+            </p>
+
+            <div className="flex flex-wrap items-center gap-2.5 pt-2 border-t border-rose-200/60">
+              {onOpenChildSafetyModal && (
+                <button
+                  onClick={onOpenChildSafetyModal}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-rose-600 hover:bg-rose-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+                >
+                  <ShieldAlert className="w-3.5 h-3.5" />
+                  <span>
+                    {language === 'en'
+                      ? 'Open Child Safety Report Assistant'
+                      : 'Buka Bantuan Laporan Keselamatan Anak'}
+                  </span>
+                </button>
+              )}
+
+              <a
+                href={`mailto:${APP_DETAILS.safetyContactEmail || APP_DETAILS.primaryContactEmail}?subject=URGENT%3A%20Child%20Safety%20%26%20CSAE%20Report`}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-rose-800 bg-rose-100/80 hover:bg-rose-200/80 rounded-lg transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 text-rose-700" />
+                <span>{APP_DETAILS.safetyContactEmail || APP_DETAILS.primaryContactEmail}</span>
+              </a>
+
+              <a
+                href="https://report.cybertip.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs font-medium text-slate-600 hover:text-slate-900 ml-auto"
+              >
+                <span>NCMEC CyberTipline</span>
+                <ExternalLink className="w-3 h-3 text-slate-400" />
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex items-start gap-2.5">
+              <ShieldCheck className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-slate-900 font-semibold block">
+                  {language === 'en' ? 'Law Enforcement & NCMEC Escalation' : 'Eskalasi ke Penegak Hukum & NCMEC'}
+                </strong>
+                <span className="text-slate-600">
+                  {language === 'en'
+                    ? 'All confirmed CSAM cases are promptly forwarded to NCMEC and police authorities.'
+                    : 'Semua kasus CSAM terkonfirmasi segera diteruskan ke NCMEC dan aparat kepolisian.'}
+                </span>
+              </div>
+            </div>
+
+            <div className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex items-start gap-2.5">
+              <Flag className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-slate-900 font-semibold block">
+                  {language === 'en' ? 'In-App Incident Reporting' : 'Pelaporan Cepat di Aplikasi'}
+                </strong>
+                <span className="text-slate-600">
+                  {language === 'en'
+                    ? 'Use the three-dot menu on any chat or profile to flag child safety concerns immediately.'
+                    : 'Gunakan menu titik tiga pada pesan atau profil untuk melaporkan kekhawatiran keselamatan anak.'}
+                </span>
+              </div>
             </div>
           </div>
         </div>

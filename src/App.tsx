@@ -11,6 +11,7 @@ import { TableOfContents } from './components/TableOfContents';
 import { PermissionMatrix } from './components/PermissionMatrix';
 import { SectionCard } from './components/SectionCard';
 import { AccountDeletionModal } from './components/AccountDeletionModal';
+import { ChildSafetyReportModal } from './components/ChildSafetyReportModal';
 import { Footer } from './components/Footer';
 import {
   PRIVACY_CONTENT_EN,
@@ -18,13 +19,14 @@ import {
   APP_DETAILS,
   SectionItem
 } from './data/privacyContent';
-import { Mail, Trash2, ArrowRight } from 'lucide-react';
+import { Mail, Trash2, ArrowRight, ShieldAlert } from 'lucide-react';
 
 export default function App() {
   const [language, setLanguage] = useState<'en' | 'id'>('en');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeSectionId, setActiveSectionId] = useState('section-1');
   const [isDeletionModalOpen, setIsDeletionModalOpen] = useState(false);
+  const [isChildSafetyModalOpen, setIsChildSafetyModalOpen] = useState(false);
 
   const sections: SectionItem[] = useMemo(() => {
     return language === 'en' ? PRIVACY_CONTENT_EN : PRIVACY_CONTENT_ID;
@@ -112,6 +114,7 @@ export default function App() {
           <KeyHighlights
             language={language}
             onOpenDeletionModal={() => setIsDeletionModalOpen(true)}
+            onOpenChildSafetyModal={() => setIsChildSafetyModalOpen(true)}
           />
         </div>
 
@@ -129,6 +132,33 @@ export default function App() {
               activeSectionId={activeSectionId}
               language={language}
             />
+
+            {/* Quick Child Safety & CSAE Card */}
+            <div className="p-4.5 rounded-xl border border-rose-200/90 bg-gradient-to-b from-rose-50/50 to-white shadow-2xs">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2 text-rose-900 font-bold">
+                  <ShieldAlert className="w-4 h-4 text-rose-600" />
+                  <h4 className="text-xs uppercase tracking-wider">
+                    {language === 'en' ? 'Child Safety & CSAE' : 'Keselamatan Anak & CSAE'}
+                  </h4>
+                </div>
+                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-rose-100 text-rose-800">
+                  {language === 'en' ? 'Zero Tolerance' : 'Nol Toleransi'}
+                </span>
+              </div>
+              <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                {language === 'en'
+                  ? 'Strict zero tolerance against CSAM and CSAE. Report immediately in-app or via our designated safety email.'
+                  : 'Nol toleransi ketat terhadap CSAM dan CSAE. Laporkan seketika di aplikasi atau via email keselamatan.'}
+              </p>
+              <button
+                onClick={() => setIsChildSafetyModalOpen(true)}
+                className="w-full py-2 px-3 text-xs font-semibold text-white rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-xs cursor-pointer hover:bg-rose-700 bg-rose-600"
+              >
+                <span>{language === 'en' ? 'Report Safety Concern' : 'Laporkan Masalah Keselamatan'}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
 
             {/* Quick Account Deletion Card */}
             <div className="p-4.5 rounded-xl border border-emerald-200/90 bg-gradient-to-b from-emerald-50/40 to-white shadow-2xs">
@@ -183,6 +213,7 @@ export default function App() {
                   language={language}
                   searchQuery={searchQuery}
                   onOpenDeletionModal={() => setIsDeletionModalOpen(true)}
+                  onOpenChildSafetyModal={() => setIsChildSafetyModalOpen(true)}
                 />
               ))
             ) : (
@@ -208,6 +239,13 @@ export default function App() {
       <AccountDeletionModal
         isOpen={isDeletionModalOpen}
         onClose={() => setIsDeletionModalOpen(false)}
+        language={language}
+      />
+
+      {/* Child Safety & CSAE Report Modal */}
+      <ChildSafetyReportModal
+        isOpen={isChildSafetyModalOpen}
+        onClose={() => setIsChildSafetyModalOpen(false)}
         language={language}
       />
 

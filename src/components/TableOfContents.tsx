@@ -50,6 +50,11 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
                     {language === 'en' ? 'Deletion' : 'Hapus'}
                   </span>
                 )}
+                {section.number === 8 && (
+                  <span className="flex-shrink-0 text-[9px] px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 font-medium border border-rose-200">
+                    {language === 'en' ? 'Safety' : 'Keselamatan'}
+                  </span>
+                )}
               </a>
             </li>
           );

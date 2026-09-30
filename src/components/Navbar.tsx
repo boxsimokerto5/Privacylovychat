@@ -1,5 +1,5 @@
 import React from 'react';
-import { Printer, Trash2, Mail } from 'lucide-react';
+import { Printer, Trash2, Mail, ShieldAlert } from 'lucide-react';
 import { APP_DETAILS } from '../data/privacyContent';
 import { LovyLogo } from './LovyLogo';
 
@@ -74,6 +74,16 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Printer className="w-3.5 h-3.5 text-slate-500" />
             <span>{language === 'en' ? 'Print / PDF' : 'Cetak PDF'}</span>
           </button>
+
+          {/* Child Safety link */}
+          <a
+            href="#section-8"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-rose-800 bg-rose-50 border border-rose-200 rounded-lg hover:bg-rose-100 transition-all shadow-xs"
+            title={language === 'en' ? 'Child Safety & CSAE Policy (Section 8)' : 'Kebijakan Keselamatan Anak (Bagian 8)'}
+          >
+            <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
+            <span>{language === 'en' ? 'Child Safety' : 'Keselamatan Anak'}</span>
+          </a>
 
           {/* Account Deletion Assistant Button */}
           <button
